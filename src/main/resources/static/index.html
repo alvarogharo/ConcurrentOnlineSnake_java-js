@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+    	<link rel="icon" href="../../favicon.ico">
+
+    	<title>Snake</title>
+    	<!-- Custom styles for this template -->
+    	<link href="style.css" rel="stylesheet">
+
+    	<!-- SCRIPTS -->
+    	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    	<!-- Optional theme -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    	<!-- Latest compiled and minified JavaScript -->
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script src="app.js"></script>
+
+		<style>
+    		body { background-color: #3055A6; 
+    			   overflow-x:hidden; 
+				   overflow-y:hidden;
+				   scroll=no;}
+    	</style>
+
+	</head>
+
+
+	<body>
+
+		<p id="titulo">SNAKE</p>
+		<div  class="row row-offcanvas row-offcanvas-right" id="prin">
+		
+			<div class= "col-md-3" id="plBox">
+				<div  id="player-box">
+				
+				</div>
+			</div>
+			
+			<!-- El canvas va a estar oculto al principio primero se va a pedir el nombre del usuario-->
+			<div class="col-md-4" id="canvas">
+				<canvas id="playground" width="640" height="480"></canvas>
+				<!-- Iniciar la partida cuando hay dos jugadores -->
+				<div id="modal3">	
+					<button class=".btn" id="button5" onclick="actionIniciar()">Iniciar</button>	
+				</div>
+				<!-- Cancelar la espera si estamos esperando -->
+				<div id="cancel">
+					<button class=".btn" id="cancelar" onclick="actionCancelar()"> Cancelar </button>
+				</div>
+				<!-- Mostrar muro de la fama -->
+				<div id="modal4">
+					<button class=".btn" id="button6" onclick="actionMuro()">Ver muro de la fama</button>
+				</div>
+			</div>
+
+			<!-- El usuario introduce el nombre/se crea el usuario -->
+			<!-- Al crear el usuario se pasa a las diferentes opciones de juego -->
+			<div class="col-md-4" id="nombre">
+				<p id="titNombre">Introduzca su nombre</p>
+				<input id="texto1"></input>
+				<button class=".btn" id="button1" onclick="actionNombre()">Aceptar</button>
+			</div>
+
+			<!--Se muestran las diferentes opciones para jugar-->
+			<div class="col-md-4" id="btnPrinc">
+				<button class=".btn" id="crear" onclick="opcCrearSala()"> Crear Sala </button>
+				<button class=".btn" id="unirse" onclick="opcUnirSala()"> Unirse a la Sala </button>
+				<button class=".btn" id="matchmaking" onclick="actionMatchmaking()"> Matchmaking </button>
+				<button class=".btn" id="chat" onclick="opcChat()"> Chat </button>
+			</div>
+
+			<!-- Crear sala -->
+			<div class="col-md-4" id="crearSala">
+				<p id="titCrear">Introduce el nombre de la sala y la dificultad</p>
+				<input id="texto2"></input>
+
+				<label id="opc" class="radio-inline"><input type="radio" id="radio1" name="optradio" checked="checked">Easy</label>
+				<label id="opc2" class="radio-inline"><input type="radio" id="radio2" name="optradio">Normal</label>
+				<label id="opc3" class="radio-inline"><input type="radio" id="radio3" name="optradio">Hard</label>
+
+				<button class=".btn" id="button2" onclick="actionCrear()">Crear sala</button>
+			</div>
+
+			<!-- Unirse a la sala -->
+			<div class="col-md-4" id="unirSala">
+				<p id="titUnir">Introduce el nombre de la sala</p>
+				<input id="unir"></input>
+				<button class=".btn" id="button3" onclick="actionUnir()">Unirse a la sala</button>
+			</div>
+
+			<!-- Matchmaking no hace falta se pasa directamente al juego-->
+
+			<!-- Chat -->
+			<div class="col-md-3" id="consola">
+				<div id="console">
+					
+				</div>
+				<div id="divChat">
+					<input type="text" id="mensaje"></input>
+					<button class=".btn" id="btnMsg" onclick="actionMensajeChat()">Send</button>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
