@@ -27,7 +27,7 @@ Use Arrow keys to move your snake.
 
 ## Galery
 
-![](/images/screenshot2.png)
-![](/images/screenshot3.png)
+![](/images/screenshot2.PNG)
+![](/images/screenshot3.PNG)
 ![](/images/screenshot4.png)
 
